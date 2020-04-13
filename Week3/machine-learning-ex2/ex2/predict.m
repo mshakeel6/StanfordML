@@ -16,7 +16,8 @@ p = zeros(m, 1);
 %
 
 
-
+hypothesis = sigmoid(X * theta);
+p = fix(hypothesis ./ .5);
 
 
 
