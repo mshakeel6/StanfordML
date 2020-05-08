@@ -21,11 +21,14 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i=1:size(X,1)
+    distance_from_centroids = zeros(1,K);
+    for j=1:K
+        distance_from_centroids(1,j) = sqrt(sum(power(centroids(j,:) - X(i,:),2)));
+    end
+    [minimum_distance_from_centroid, index_of_minimum_distance] = min(distance_from_centroids);
+    idx(i) = index_of_minimum_distance;
+end
 
 % =============================================================
 
