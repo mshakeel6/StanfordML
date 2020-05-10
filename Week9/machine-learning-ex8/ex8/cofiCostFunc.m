@@ -44,14 +44,11 @@ Theta_grad = zeros(size(Theta));
 
 
 
+hypothesis = X * Theta';
+J = 0.5 * sum(sum(R .* (hypothesis - Y) .^ 2)) + 0.5*lambda*sum(sum(Theta.^2)) + 0.5 * lambda*(sum(sum(X.^2)));
 
-
-
-
-
-
-
-
+X_grad = R .* (hypothesis - Y) * Theta + lambda * X;
+Theta_grad = (R .* (hypothesis - Y))' * X + lambda * Theta;
 
 
 
